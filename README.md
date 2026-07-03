@@ -36,3 +36,47 @@ The dataset includes the following information:
 
 ### Data Update Frequency
 This is a historical dataset collected during **2011–2012** and is not updated regularly.
+
+# ETL PIPELINE FLOW DIAGRAM
+
+                 BIKE SHARING DATASET
+                      (hour.csv)
+                           │
+                           ▼
+                     Extract Data
+            (Read CSV using Pandas)
+                           │
+                           ▼
+                     Validate Data
+      (Check Missing Values, Duplicates,
+        Data Types, Column Information)
+                           │
+                           ▼
+                      Clean Data
+      (Remove Duplicates, Handle Missing Values)
+                           │
+                           ▼
+                   Transform Data
+       • Rename Columns
+       • Convert Date to Datetime
+       • Convert Year (0→2011, 1→2012)
+       • Create Season_Name
+       • Create Weather_Description
+       • Convert Temperature to Celsius
+       • Create Humidity_Level
+       • Create Rental_Category
+       • Sort Dataset
+       • Validate Rental Values
+                           │
+                           ▼
+                  Generate Reports
+       • Cleaned Dataset
+       • Top 10 Records
+       • Bottom 10 Records
+       • Summary Statistics
+       • Monthly Rental Report
+       • Weather Report
+                           │
+                           ▼
+                        Load
+      (Save Reports as CSV Files in Reports Folder)
